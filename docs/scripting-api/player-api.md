@@ -6,7 +6,33 @@ sidebar_position: 7
 
 The Player API provides functions to access and modify player properties and actions.
 
-All functions in this API are accessible through the `alya.player` table.
+All functions in this API are accessible through the `player` table.
+
+## Player Finding
+
+### getPlayersInRange
+
+```lua
+player.getPlayersInRange(range)
+```
+
+Gets all players within the specified range of the local player.
+
+**Parameters:**
+- `range` (number) - The range in blocks
+
+**Returns:**
+- `table` - A list of player entities within the range
+
+**Example:**
+```lua
+local players = player.getPlayersInRange(10)
+util.chatInfo("Players within 10 blocks: " .. #players)
+for i, p in ipairs(players) do
+    local name = entity.getEntityName(p)
+    util.chatInfo(i .. ". " .. name)
+end
+```
 
 ## Player Status
 
@@ -381,11 +407,11 @@ function onUpdate()
         -- Check if there's a block in front of the player
         local pos = alya.mc.getPlayerPosition()
         local yaw = alya.player.getYaw() * (math.pi / 180)
-        
+
         -- Calculate the position 1 block in front of the player
         local frontX = pos.x - math.sin(yaw)
         local frontZ = pos.z + math.cos(yaw)
-        
+
         -- Check if there's a block at feet level
         if not alya.world.isAir(math.floor(frontX), math.floor(pos.y), math.floor(frontZ)) then
             alya.player.jump()
@@ -401,7 +427,7 @@ function onUpdate()
     if alya.mc.isInGame() and alya.player.isTouchingWater() then
         -- Get current velocity
         local vel = alya.player.getVelocity()
-        
+
         -- Apply upward velocity to keep the player from sinking
         if vel.y < 0 then
             alya.player.setVelocity(vel.x, 0.1, vel.z)
@@ -418,16 +444,16 @@ function lookAtNearestPlayer()
     if nearestPlayer then
         local playerPos = alya.mc.getPlayerPosition()
         local targetPos = alya.entity.getEntityPosition(nearestPlayer)
-        
+
         -- Calculate angle to target
         local deltaX = targetPos.x - playerPos.x
         local deltaY = (targetPos.y + 1.62) - (playerPos.y + 1.62) -- Eye height
         local deltaZ = targetPos.z - playerPos.z
-        
+
         local yaw = math.atan2(deltaZ, deltaX) * (180 / math.pi) - 90
         local dist = math.sqrt(deltaX * deltaX + deltaZ * deltaZ)
         local pitch = -math.atan2(deltaY, dist) * (180 / math.pi)
-        
+
         -- Set player rotation
         alya.player.setYaw(yaw)
         alya.player.setPitch(pitch)

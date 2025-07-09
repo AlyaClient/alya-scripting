@@ -6,14 +6,14 @@ sidebar_position: 11
 
 The Sound API provides functions to play sounds in the Minecraft game.
 
-All functions in this API are accessible through the `alya.sound` table.
+All functions in this API are accessible through the `sound` table.
 
 ## Playing Sounds
 
 ### playSound
 
 ```lua
-alya.sound.playSound(soundName, volume, pitch)
+sound.playSound(soundName, volume, pitch)
 ```
 
 Plays a sound at the player's location.
@@ -26,16 +26,16 @@ Plays a sound at the player's location.
 **Example:**
 ```lua
 -- Play a block breaking sound
-alya.sound.playSound("minecraft:block.stone.break")
+sound.playSound("minecraft:block.stone.break")
 
 -- Play a note block sound at higher pitch and volume
-alya.sound.playSound("minecraft:block.note_block.harp", 2.0, 1.5)
+sound.playSound("minecraft:block.note_block.harp", 2.0, 1.5)
 ```
 
 ### playSoundAt
 
 ```lua
-alya.sound.playSoundAt(soundName, x, y, z, volume, pitch)
+sound.playSoundAt(soundName, x, y, z, volume, pitch)
 ```
 
 Plays a sound at the specified location.
@@ -51,11 +51,11 @@ Plays a sound at the specified location.
 **Example:**
 ```lua
 -- Play an explosion sound at coordinates (0, 64, 0)
-alya.sound.playSoundAt("minecraft:entity.generic.explode", 0, 64, 0)
+sound.playSoundAt("minecraft:entity.generic.explode", 0, 64, 0)
 
 -- Play a chest opening sound at a specific location with custom volume and pitch
-local pos = alya.mc.getPlayerPosition()
-alya.sound.playSoundAt("minecraft:block.chest.open", pos.x + 3, pos.y, pos.z, 0.5, 0.8)
+local pos = mc.getPlayerPosition()
+sound.playSoundAt("minecraft:block.chest.open", pos.x + 3, pos.y, pos.z, 0.5, 0.8)
 ```
 
 ## Common Minecraft Sounds
@@ -109,46 +109,27 @@ Here are some commonly used Minecraft sounds that you can use with the Sound API
 
 ## Usage Examples
 
-### Sound Effects for Actions
-
-```lua
-function onJump()
-    -- Play a sound when the player jumps
-    alya.sound.playSound("minecraft:entity.bat.takeoff", 0.5, 1.2)
-end
-
-function onKill()
-    -- Play a sound when the player gets a kill
-    alya.sound.playSound("minecraft:entity.player.levelup", 1.0, 1.0)
-end
-
-function onFall()
-    -- Play a sound when the player falls from a height
-    alya.sound.playSound("minecraft:entity.generic.big_fall", 1.0, 1.0)
-end
-```
-
 ### Directional Sound Radar
 
 ```lua
 function soundRadar()
     -- Get nearby players
-    local players = alya.entity.getPlayersInRange(20)
-    local playerPos = alya.mc.getPlayerPosition()
-    
-    for _, player in ipairs(players) do
-        local entityPos = alya.entity.getEntityPosition(player)
-        
+    local players = player.getPlayersInRange(20)
+    local playerPos = mc.getPlayerPosition()
+
+    for _, p in ipairs(players) do
+        local entityPos = entity.getEntityPosition(p)
+
         -- Calculate distance
-        local distance = alya.math.distance(
+        local distance = math.distance(
             playerPos.x, playerPos.y, playerPos.z,
             entityPos.x, entityPos.y, entityPos.z
         )
-        
+
         -- Play sound at player's position with volume based on distance
         local volume = 1.0 - (distance / 20)
         if volume > 0 then
-            alya.sound.playSoundAt("minecraft:block.note_block.pling", 
+            sound.playSoundAt("minecraft:block.note_block.pling", 
                 entityPos.x, entityPos.y, entityPos.z, 
                 volume, 1.0)
         end
@@ -170,10 +151,10 @@ function playMelody()
         { sound = "minecraft:block.note_block.harp", pitch = 1.1 },
         { sound = "minecraft:block.note_block.harp", pitch = 1.2 }
     }
-    
+
     for _, note in ipairs(notes) do
-        alya.sound.playSound(note.sound, 1.0, note.pitch)
-        alya.util.sleep(200) -- 200ms delay between notes
+        sound.playSound(note.sound, 1.0, note.pitch)
+        util.sleep(200) -- 200ms delay between notes
     end
 end
 ```
@@ -193,24 +174,24 @@ function createAmbience()
             "minecraft:ambient.underwater.loop.additions.ultra_rare",
             "minecraft:ambient.underwater.enter"
         }
-        
-        local randomSound = sounds[alya.util.randomInt(1, #sounds)]
-        
+
+        local randomSound = sounds[util.randomInt(1, #sounds)]
+
         -- Play at a random position near the player
-        local pos = alya.mc.getPlayerPosition()
-        local offsetX = alya.util.randomDouble(-10, 10)
-        local offsetY = alya.util.randomDouble(-5, 5)
-        local offsetZ = alya.util.randomDouble(-10, 10)
-        
-        alya.sound.playSoundAt(randomSound, 
+        local pos = mc.getPlayerPosition()
+        local offsetX = util.randomDouble(-10, 10)
+        local offsetY = util.randomDouble(-5, 5)
+        local offsetZ = util.randomDouble(-10, 10)
+
+        sound.playSoundAt(randomSound, 
             pos.x + offsetX, 
             pos.y + offsetY, 
             pos.z + offsetZ, 
             0.3, 1.0)
-        
+
         -- Wait for a random time before playing the next sound
-        local delay = alya.util.randomInt(5000, 15000)
-        alya.util.sleep(delay)
+        local delay = util.randomInt(5000, 15000)
+        util.sleep(delay)
     end
 end
 ```
