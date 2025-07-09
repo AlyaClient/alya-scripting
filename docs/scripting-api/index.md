@@ -94,7 +94,7 @@ author = "YourName"
 > **Hint**: When your script isn't working as expected, these debugging techniques can help:
 
 1. Use `alya.util.chatInfo()` to print debug messages to the chat
-2. Check the Alya console for error messages (press F8 to open it)
+2. [FEATURE NOT AVAILABLE YET] Check the Alya console for error messages (press F8 to open it)
 3. Use `print()` to output to the console
 4. Break down complex operations into smaller steps and test each one
 5. Remember that some functions may only work in certain game states (e.g., when connected to a server)
@@ -134,7 +134,7 @@ alya
 └── sound - Sound playing
 ```
 
-> **Hint**: You can use tab completion in the Alya console (F8) to explore available functions. Type `alya.` and press Tab to see available modules, then continue with `alya.module.` to see functions.
+> **Hint**: You can use tab completion in the [FEATURE NOT AVAILABLE YET] Alya console (F8) to explore available functions. Type `alya.` and press Tab to see available modules, then continue with `alya.module.` to see functions.
 
 For example, to access the player's position:
 
