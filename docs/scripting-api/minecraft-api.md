@@ -6,14 +6,14 @@ sidebar_position: 2
 
 The Minecraft API provides direct access to basic Minecraft game elements like the player, world, and entities.
 
-All functions in this API are accessible through the `alya.mc` table.
+All functions in this API are accessible through the `mc` table.
 
 ## Player Functions
 
 ### getPlayer
 
 ```lua
-alya.mc.getPlayer()
+mc.getPlayer()
 ```
 
 Returns the player object or `nil` if the player is not available.
@@ -23,16 +23,16 @@ Returns the player object or `nil` if the player is not available.
 
 **Example:**
 ```lua
-local player = alya.mc.getPlayer()
+local player = mc.getPlayer()
 if player then
-    alya.util.chatInfo("Player name: " .. player:getName():getString())
+    util.chatInfo("Player name: " .. player:getName():getString())
 end
 ```
 
 ### getPlayerPosition
 
 ```lua
-alya.mc.getPlayerPosition()
+mc.getPlayerPosition()
 ```
 
 Returns the player's position as a table with x, y, and z coordinates.
@@ -45,14 +45,14 @@ Returns the player's position as a table with x, y, and z coordinates.
 
 **Example:**
 ```lua
-local pos = alya.mc.getPlayerPosition()
-alya.util.chatInfo("Position: " .. pos.x .. ", " .. pos.y .. ", " .. pos.z)
+local pos = mc.getPlayerPosition()
+util.chatInfo("Position: " .. pos.x .. ", " .. pos.y .. ", " .. pos.z)
 ```
 
 ### getPlayerSpeed
 
 ```lua
-alya.mc.getPlayerSpeed()
+mc.getPlayerSpeed()
 ```
 
 Returns the player's current speed in blocks per second.
@@ -62,8 +62,8 @@ Returns the player's current speed in blocks per second.
 
 **Example:**
 ```lua
-local speed = alya.mc.getPlayerSpeed()
-alya.util.chatInfo("Current speed: " .. speed .. " blocks/s")
+local speed = mc.getPlayerSpeed()
+util.chatInfo("Current speed: " .. speed .. " blocks/s")
 ```
 
 ## World Functions
@@ -71,7 +71,7 @@ alya.util.chatInfo("Current speed: " .. speed .. " blocks/s")
 ### getWorld
 
 ```lua
-alya.mc.getWorld()
+mc.getWorld()
 ```
 
 Returns the world object or `nil` if the world is not available.
@@ -81,16 +81,16 @@ Returns the world object or `nil` if the world is not available.
 
 **Example:**
 ```lua
-local world = alya.mc.getWorld()
+local world = mc.getWorld()
 if world then
-    alya.util.chatInfo("World time: " .. world:getTime())
+    util.chatInfo("World time: " .. world:getTime())
 end
 ```
 
 ### getEntities
 
 ```lua
-alya.mc.getEntities()
+mc.getEntities()
 ```
 
 Returns a list of all entities in the world.
@@ -100,14 +100,14 @@ Returns a list of all entities in the world.
 
 **Example:**
 ```lua
-local entities = alya.mc.getEntities()
-alya.util.chatInfo("Number of entities: " .. #entities)
+local entities = mc.getEntities()
+util.chatInfo("Number of entities: " .. #entities)
 ```
 
 ### getPlayers
 
 ```lua
-alya.mc.getPlayers()
+mc.getPlayers()
 ```
 
 Returns a list of all player entities in the world.
@@ -117,8 +117,8 @@ Returns a list of all player entities in the world.
 
 **Example:**
 ```lua
-local players = alya.mc.getPlayers()
-alya.util.chatInfo("Number of players: " .. #players)
+local players = mc.getPlayers()
+util.chatInfo("Number of players: " .. #players)
 ```
 
 ## Game Information
@@ -126,7 +126,7 @@ alya.util.chatInfo("Number of players: " .. #players)
 ### getFPS
 
 ```lua
-alya.mc.getFPS()
+mc.getFPS()
 ```
 
 Returns the current frames per second.
@@ -136,14 +136,14 @@ Returns the current frames per second.
 
 **Example:**
 ```lua
-local fps = alya.mc.getFPS()
-alya.util.chatInfo("Current FPS: " .. fps)
+local fps = mc.getFPS()
+util.chatInfo("Current FPS: " .. fps)
 ```
 
 ### getGameTime
 
 ```lua
-alya.mc.getGameTime()
+mc.getGameTime()
 ```
 
 Returns the current game time in ticks.
@@ -153,14 +153,14 @@ Returns the current game time in ticks.
 
 **Example:**
 ```lua
-local gameTime = alya.mc.getGameTime()
-alya.util.chatInfo("Game time: " .. gameTime)
+local gameTime = mc.getGameTime()
+util.chatInfo("Game time: " .. gameTime)
 ```
 
 ### getDayTime
 
 ```lua
-alya.mc.getDayTime()
+mc.getDayTime()
 ```
 
 Returns the current day time in ticks.
@@ -170,14 +170,14 @@ Returns the current day time in ticks.
 
 **Example:**
 ```lua
-local dayTime = alya.mc.getDayTime()
-alya.util.chatInfo("Day time: " .. dayTime)
+local dayTime = mc.getDayTime()
+util.chatInfo("Day time: " .. dayTime)
 ```
 
 ### isInGame
 
 ```lua
-alya.mc.isInGame()
+mc.isInGame()
 ```
 
 Returns whether the player is currently in a game.
@@ -187,10 +187,10 @@ Returns whether the player is currently in a game.
 
 **Example:**
 ```lua
-if alya.mc.isInGame() then
-    alya.util.chatInfo("Player is in game")
+if mc.isInGame() then
+    util.chatInfo("Player is in game")
 else
-    alya.util.chatInfo("Player is not in game")
+    util.chatInfo("Player is not in game")
 end
 ```
 
@@ -199,7 +199,7 @@ end
 ### getMouseX
 
 ```lua
-alya.mc.getMouseX()
+mc.getMouseX()
 ```
 
 Returns the current X position of the mouse cursor.
@@ -209,14 +209,14 @@ Returns the current X position of the mouse cursor.
 
 **Example:**
 ```lua
-local mouseX = alya.mc.getMouseX()
-alya.util.chatInfo("Mouse X: " .. mouseX)
+local mouseX = mc.getMouseX()
+util.chatInfo("Mouse X: " .. mouseX)
 ```
 
 ### getMouseY
 
 ```lua
-alya.mc.getMouseY()
+mc.getMouseY()
 ```
 
 Returns the current Y position of the mouse cursor.
@@ -226,14 +226,14 @@ Returns the current Y position of the mouse cursor.
 
 **Example:**
 ```lua
-local mouseY = alya.mc.getMouseY()
-alya.util.chatInfo("Mouse Y: " .. mouseY)
+local mouseY = mc.getMouseY()
+util.chatInfo("Mouse Y: " .. mouseY)
 ```
 
 ### getScreenWidth
 
 ```lua
-alya.mc.getScreenWidth()
+mc.getScreenWidth()
 ```
 
 Returns the width of the game window.
@@ -243,14 +243,14 @@ Returns the width of the game window.
 
 **Example:**
 ```lua
-local width = alya.mc.getScreenWidth()
-alya.util.chatInfo("Screen width: " .. width)
+local width = mc.getScreenWidth()
+util.chatInfo("Screen width: " .. width)
 ```
 
 ### getScreenHeight
 
 ```lua
-alya.mc.getScreenHeight()
+mc.getScreenHeight()
 ```
 
 Returns the height of the game window.
@@ -260,6 +260,6 @@ Returns the height of the game window.
 
 **Example:**
 ```lua
-local height = alya.mc.getScreenHeight()
-alya.util.chatInfo("Screen height: " .. height)
+local height = mc.getScreenHeight()
+util.chatInfo("Screen height: " .. height)
 ```
