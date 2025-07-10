@@ -6,14 +6,14 @@ sidebar_position: 4
 
 The Render API provides functions for drawing text and shapes on the screen.
 
-All functions in this API are accessible through the `alya.render` table.
+All functions in this API are accessible through the `render` table.
 
 ## Colors
 
 ### color
 
 ```lua
-alya.render.color(colorNameOrRGB)
+render.color(colorNameOrRGB)
 ```
 
 Creates a color value that can be used with rendering functions.
@@ -27,13 +27,13 @@ Creates a color value that can be used with rendering functions.
 **Examples:**
 ```lua
 -- Using a color name
-local redColor = alya.render.color("RED")
+local redColor = render.color("RED")
 
 -- Using RGB values (red, green, blue)
-local customColor = alya.render.color(255, 100, 50)
+local customColor = render.color(255, 100, 50)
 
 -- Using RGBA values (red, green, blue, alpha)
-local transparentBlue = alya.render.color(0, 0, 255, 128)
+local transparentBlue = render.color(0, 0, 255, 128)
 ```
 
 Available color names:
@@ -57,7 +57,7 @@ Available color names:
 ### drawText
 
 ```lua
-alya.render.drawText(text, x, y, color, shadow)
+render.drawText(text, x, y, color, shadow)
 ```
 
 Draws text on the screen.
@@ -72,14 +72,14 @@ Draws text on the screen.
 **Example:**
 ```lua
 -- Draw white text at coordinates (10, 10)
-alya.render.drawText("Hello, World!", 10, 10)
+render.drawText("Hello, World!", 10, 10)
 
 -- Draw red text with shadow
-alya.render.drawText("Warning!", 10, 30, alya.render.color("RED"), true)
+render.drawText("Warning!", 10, 30, render.color("RED"), true)
 
 -- Draw custom colored text
-local purple = alya.render.color(200, 0, 255)
-alya.render.drawText("Custom color", 10, 50, purple)
+local purple = render.color(200, 0, 255)
+render.drawText("Custom color", 10, 50, purple)
 ```
 
 ## Drawing Shapes
@@ -87,7 +87,7 @@ alya.render.drawText("Custom color", 10, 50, purple)
 ### drawRect
 
 ```lua
-alya.render.drawRect(x, y, width, height, color)
+render.drawRect(x, y, width, height, color)
 ```
 
 Draws a filled rectangle on the screen.
@@ -102,14 +102,14 @@ Draws a filled rectangle on the screen.
 **Example:**
 ```lua
 -- Draw a white rectangle
-alya.render.drawRect(10, 10, 100, 50)
+render.drawRect(10, 10, 100, 50)
 
 -- Draw a red rectangle
-alya.render.drawRect(10, 70, 100, 50, alya.render.color("RED"))
+render.drawRect(10, 70, 100, 50, render.color("RED"))
 
 -- Draw a semi-transparent blue rectangle
-local blueTransparent = alya.render.color(0, 0, 255, 128)
-alya.render.drawRect(10, 130, 100, 50, blueTransparent)
+local blueTransparent = render.color(0, 0, 255, 128)
+render.drawRect(10, 130, 100, 50, blueTransparent)
 ```
 
 ## Text Measurements
@@ -117,7 +117,7 @@ alya.render.drawRect(10, 130, 100, 50, blueTransparent)
 ### getStringWidth
 
 ```lua
-alya.render.getStringWidth(text)
+render.getStringWidth(text)
 ```
 
 Returns the width of a string in pixels when rendered.
@@ -131,20 +131,20 @@ Returns the width of a string in pixels when rendered.
 **Example:**
 ```lua
 local text = "Hello, World!"
-local width = alya.render.getStringWidth(text)
-alya.util.chatInfo("Text width: " .. width .. " pixels")
+local width = render.getStringWidth(text)
+util.chatInfo("Text width: " .. width .. " pixels")
 
 -- Center text on screen
-local screenWidth = alya.mc.getScreenWidth()
-local textWidth = alya.render.getStringWidth(text)
+local screenWidth = mc.getScreenWidth()
+local textWidth = render.getStringWidth(text)
 local x = (screenWidth - textWidth) / 2
-alya.render.drawText(text, x, 10, alya.render.color("WHITE"), true)
+render.drawText(text, x, 10, render.color("WHITE"), true)
 ```
 
 ### getStringHeight
 
 ```lua
-alya.render.getStringHeight()
+render.getStringHeight()
 ```
 
 Returns the height of a single line of text in pixels.
@@ -154,15 +154,15 @@ Returns the height of a single line of text in pixels.
 
 **Example:**
 ```lua
-local height = alya.render.getStringHeight()
-alya.util.chatInfo("Text height: " .. height .. " pixels")
+local height = render.getStringHeight()
+util.chatInfo("Text height: " .. height .. " pixels")
 
 -- Draw multiple lines of text with proper spacing
 local lines = {"Line 1", "Line 2", "Line 3"}
-local lineHeight = alya.render.getStringHeight()
+local lineHeight = render.getStringHeight()
 for i, line in ipairs(lines) do
     local y = 10 + (i-1) * (lineHeight + 2)
-    alya.render.drawText(line, 10, y)
+    render.drawText(line, 10, y)
 end
 ```
 
@@ -173,16 +173,16 @@ The Render API is most commonly used in the `onRender2D` function of scripts, wh
 ```lua
 function onRender2D()
     -- Draw a HUD element
-    local screenWidth = alya.mc.getScreenWidth()
-    local screenHeight = alya.mc.getScreenHeight()
+    local screenWidth = mc.getScreenWidth()
+    local screenHeight = mc.getScreenHeight()
     
     -- Background
-    alya.render.drawRect(10, 10, 100, 50, alya.render.color(0, 0, 0, 128))
+    render.drawRect(10, 10, 100, 50, render.color(0, 0, 0, 128))
     
     -- Text
-    alya.render.drawText("FPS: " .. alya.mc.getFPS(), 15, 15, alya.render.color("WHITE"), true)
-    alya.render.drawText("X: " .. math.floor(alya.mc.getPlayerPosition().x), 15, 25, alya.render.color("WHITE"), true)
-    alya.render.drawText("Y: " .. math.floor(alya.mc.getPlayerPosition().y), 15, 35, alya.render.color("WHITE"), true)
-    alya.render.drawText("Z: " .. math.floor(alya.mc.getPlayerPosition().z), 15, 45, alya.render.color("WHITE"), true)
+    render.drawText("FPS: " .. mc.getFPS(), 15, 15, render.color("WHITE"), true)
+    render.drawText("X: " .. math.floor(mc.getPlayerPosition().x), 15, 25, render.color("WHITE"), true)
+    render.drawText("Y: " .. math.floor(mc.getPlayerPosition().y), 15, 35, render.color("WHITE"), true)
+    render.drawText("Z: " .. math.floor(mc.getPlayerPosition().z), 15, 45, render.color("WHITE"), true)
 end
 ```
