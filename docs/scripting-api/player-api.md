@@ -39,7 +39,7 @@ end
 ### getHealth
 
 ```lua
-alya.player.getHealth()
+player.getHealth()
 ```
 
 Gets the player's current health.
@@ -49,14 +49,14 @@ Gets the player's current health.
 
 **Example:**
 ```lua
-local health = alya.player.getHealth()
-alya.util.chatInfo("Health: " .. health .. " / " .. alya.player.getMaxHealth())
+local health = player.getHealth()
+util.chatInfo("Health: " .. health .. " / " .. player.getMaxHealth())
 ```
 
 ### getMaxHealth
 
 ```lua
-alya.player.getMaxHealth()
+player.getMaxHealth()
 ```
 
 Gets the player's maximum health.
@@ -66,14 +66,14 @@ Gets the player's maximum health.
 
 **Example:**
 ```lua
-local maxHealth = alya.player.getMaxHealth()
-alya.util.chatInfo("Max Health: " .. maxHealth)
+local maxHealth = player.getMaxHealth()
+util.chatInfo("Max Health: " .. maxHealth)
 ```
 
 ### getFoodLevel
 
 ```lua
-alya.player.getFoodLevel()
+player.getFoodLevel()
 ```
 
 Gets the player's food level.
@@ -83,14 +83,14 @@ Gets the player's food level.
 
 **Example:**
 ```lua
-local foodLevel = alya.player.getFoodLevel()
-alya.util.chatInfo("Food Level: " .. foodLevel)
+local foodLevel = player.getFoodLevel()
+util.chatInfo("Food Level: " .. foodLevel)
 ```
 
 ### getSaturation
 
 ```lua
-alya.player.getSaturation()
+player.getSaturation()
 ```
 
 Gets the player's saturation level.
@@ -100,14 +100,14 @@ Gets the player's saturation level.
 
 **Example:**
 ```lua
-local saturation = alya.player.getSaturation()
-alya.util.chatInfo("Saturation: " .. saturation)
+local saturation = player.getSaturation()
+util.chatInfo("Saturation: " .. saturation)
 ```
 
 ### getExperience
 
 ```lua
-alya.player.getExperience()
+player.getExperience()
 ```
 
 Gets the player's experience level.
@@ -117,8 +117,8 @@ Gets the player's experience level.
 
 **Example:**
 ```lua
-local xpLevel = alya.player.getExperience()
-alya.util.chatInfo("XP Level: " .. xpLevel)
+local xpLevel = player.getExperience()
+util.chatInfo("XP Level: " .. xpLevel)
 ```
 
 ## Movement and Position
@@ -126,7 +126,7 @@ alya.util.chatInfo("XP Level: " .. xpLevel)
 ### getVelocity
 
 ```lua
-alya.player.getVelocity()
+player.getVelocity()
 ```
 
 Gets the player's velocity.
@@ -140,16 +140,16 @@ Gets the player's velocity.
 
 **Example:**
 ```lua
-local velocity = alya.player.getVelocity()
+local velocity = player.getVelocity()
 if velocity then
-    alya.util.chatInfo("Velocity: " .. velocity.x .. ", " .. velocity.y .. ", " .. velocity.z)
+    util.chatInfo("Velocity: " .. velocity.x .. ", " .. velocity.y .. ", " .. velocity.z)
 end
 ```
 
 ### getYaw
 
 ```lua
-alya.player.getYaw()
+player.getYaw()
 ```
 
 Gets the player's yaw (horizontal rotation).
@@ -159,14 +159,14 @@ Gets the player's yaw (horizontal rotation).
 
 **Example:**
 ```lua
-local yaw = alya.player.getYaw()
-alya.util.chatInfo("Yaw: " .. yaw)
+local yaw = player.getYaw()
+util.chatInfo("Yaw: " .. yaw)
 ```
 
 ### getPitch
 
 ```lua
-alya.player.getPitch()
+player.getPitch()
 ```
 
 Gets the player's pitch (vertical rotation).
@@ -176,14 +176,14 @@ Gets the player's pitch (vertical rotation).
 
 **Example:**
 ```lua
-local pitch = alya.player.getPitch()
-alya.util.chatInfo("Pitch: " .. pitch)
+local pitch = player.getPitch()
+util.chatInfo("Pitch: " .. pitch)
 ```
 
 ### isOnGround
 
 ```lua
-alya.player.isOnGround()
+player.isOnGround()
 ```
 
 Checks if the player is on the ground.
@@ -193,17 +193,17 @@ Checks if the player is on the ground.
 
 **Example:**
 ```lua
-if alya.player.isOnGround() then
-    alya.util.chatInfo("Player is on the ground")
+if player.isOnGround() then
+    util.chatInfo("Player is on the ground")
 else
-    alya.util.chatInfo("Player is in the air")
+    util.chatInfo("Player is in the air")
 end
 ```
 
 ### isTouchingWater
 
 ```lua
-alya.player.isTouchingWater()
+player.isTouchingWater()
 ```
 
 Checks if the player is touching water.
@@ -213,17 +213,17 @@ Checks if the player is touching water.
 
 **Example:**
 ```lua
-if alya.player.isTouchingWater() then
-    alya.util.chatInfo("Player is in water")
+if player.isTouchingWater() then
+    util.chatInfo("Player is in water")
 else
-    alya.util.chatInfo("Player is not in water")
+    util.chatInfo("Player is not in water")
 end
 ```
 
 ### isInLava
 
 ```lua
-alya.player.isInLava()
+player.isInLava()
 ```
 
 Checks if the player is in lava.
@@ -233,10 +233,10 @@ Checks if the player is in lava.
 
 **Example:**
 ```lua
-if alya.player.isInLava() then
-    alya.util.chatInfo("Player is in lava!")
+if player.isInLava() then
+    util.chatInfo("Player is in lava!")
 else
-    alya.util.chatInfo("Player is not in lava")
+    util.chatInfo("Player is not in lava")
 end
 ```
 
@@ -245,7 +245,7 @@ end
 ### isCreative
 
 ```lua
-alya.player.isCreative()
+player.isCreative()
 ```
 
 Checks if the player is in creative mode.
@@ -255,17 +255,17 @@ Checks if the player is in creative mode.
 
 **Example:**
 ```lua
-if alya.player.isCreative() then
-    alya.util.chatInfo("Player is in creative mode")
+if player.isCreative() then
+    util.chatInfo("Player is in creative mode")
 else
-    alya.util.chatInfo("Player is not in creative mode")
+    util.chatInfo("Player is not in creative mode")
 end
 ```
 
 ### canFly
 
 ```lua
-alya.player.canFly()
+player.canFly()
 ```
 
 Checks if the player can fly.
@@ -275,10 +275,10 @@ Checks if the player can fly.
 
 **Example:**
 ```lua
-if alya.player.canFly() then
-    alya.util.chatInfo("Player can fly")
+if player.canFly() then
+    util.chatInfo("Player can fly")
 else
-    alya.util.chatInfo("Player cannot fly")
+    util.chatInfo("Player cannot fly")
 end
 ```
 
@@ -287,7 +287,7 @@ end
 ### setPosition
 
 ```lua
-alya.player.setPosition(x, y, z)
+player.setPosition(x, y, z)
 ```
 
 Sets the player's position.
@@ -300,14 +300,14 @@ Sets the player's position.
 **Example:**
 ```lua
 -- Teleport the player 5 blocks up
-local pos = alya.mc.getPlayerPosition()
-alya.player.setPosition(pos.x, pos.y + 5, pos.z)
+local pos = mc.getPlayerPosition()
+player.setPosition(pos.x, pos.y + 5, pos.z)
 ```
 
 ### setVelocity
 
 ```lua
-alya.player.setVelocity(x, y, z)
+player.setVelocity(x, y, z)
 ```
 
 Sets the player's velocity.
@@ -320,18 +320,18 @@ Sets the player's velocity.
 **Example:**
 ```lua
 -- Make the player jump higher
-alya.player.setVelocity(0, 0.5, 0)
+player.setVelocity(0, 0.5, 0)
 
 -- Launch the player forward
-local yaw = alya.player.getYaw() * (math.pi / 180)
+local yaw = player.getYaw() * (math.pi / 180)
 local speed = 1.0
-alya.player.setVelocity(-math.sin(yaw) * speed, 0.5, math.cos(yaw) * speed)
+player.setVelocity(-math.sin(yaw) * speed, 0.5, math.cos(yaw) * speed)
 ```
 
 ### setYaw
 
 ```lua
-alya.player.setYaw(yaw)
+player.setYaw(yaw)
 ```
 
 Sets the player's yaw (horizontal rotation).
@@ -342,16 +342,16 @@ Sets the player's yaw (horizontal rotation).
 **Example:**
 ```lua
 -- Make the player face north (0 degrees)
-alya.player.setYaw(0)
+player.setYaw(0)
 
 -- Make the player face east (90 degrees)
-alya.player.setYaw(90)
+player.setYaw(90)
 ```
 
 ### setPitch
 
 ```lua
-alya.player.setPitch(pitch)
+player.setPitch(pitch)
 ```
 
 Sets the player's pitch (vertical rotation).
@@ -362,39 +362,39 @@ Sets the player's pitch (vertical rotation).
 **Example:**
 ```lua
 -- Make the player look straight ahead
-alya.player.setPitch(0)
+player.setPitch(0)
 
 -- Make the player look up
-alya.player.setPitch(-90)
+player.setPitch(-90)
 
 -- Make the player look down
-alya.player.setPitch(90)
+player.setPitch(90)
 ```
 
 ### jump
 
 ```lua
-alya.player.jump()
+player.jump()
 ```
 
 Makes the player jump.
 
 **Example:**
 ```lua
-alya.player.jump()
+player.jump()
 ```
 
 ### swingHand
 
 ```lua
-alya.player.swingHand()
+player.swingHand()
 ```
 
 Makes the player swing their main hand.
 
 **Example:**
 ```lua
-alya.player.swingHand()
+player.swingHand()
 ```
 
 ## Usage Examples
@@ -403,18 +403,18 @@ alya.player.swingHand()
 
 ```lua
 function onUpdate()
-    if alya.mc.isInGame() and alya.player.isOnGround() then
+    if mc.isInGame() and player.isOnGround() then
         -- Check if there's a block in front of the player
-        local pos = alya.mc.getPlayerPosition()
-        local yaw = alya.player.getYaw() * (math.pi / 180)
+        local pos = mc.getPlayerPosition()
+        local yaw = player.getYaw() * (math.pi / 180)
 
         -- Calculate the position 1 block in front of the player
         local frontX = pos.x - math.sin(yaw)
         local frontZ = pos.z + math.cos(yaw)
 
         -- Check if there's a block at feet level
-        if not alya.world.isAir(math.floor(frontX), math.floor(pos.y), math.floor(frontZ)) then
-            alya.player.jump()
+        if not world.isAir(math.floor(frontX), math.floor(pos.y), math.floor(frontZ)) then
+            player.jump()
         end
     end
 end
@@ -424,13 +424,13 @@ end
 
 ```lua
 function onUpdate()
-    if alya.mc.isInGame() and alya.player.isTouchingWater() then
+    if mc.isInGame() and player.isTouchingWater() then
         -- Get current velocity
-        local vel = alya.player.getVelocity()
+        local vel = player.getVelocity()
 
         -- Apply upward velocity to keep the player from sinking
         if vel.y < 0 then
-            alya.player.setVelocity(vel.x, 0.1, vel.z)
+            player.setVelocity(vel.x, 0.1, vel.z)
         end
     end
 end
@@ -440,10 +440,10 @@ end
 
 ```lua
 function lookAtNearestPlayer()
-    local nearestPlayer = alya.entity.getClosestPlayer()
+    local nearestPlayer = entity.getClosestPlayer()
     if nearestPlayer then
-        local playerPos = alya.mc.getPlayerPosition()
-        local targetPos = alya.entity.getEntityPosition(nearestPlayer)
+        local playerPos = mc.getPlayerPosition()
+        local targetPos = entity.getEntityPosition(nearestPlayer)
 
         -- Calculate angle to target
         local deltaX = targetPos.x - playerPos.x
@@ -455,8 +455,8 @@ function lookAtNearestPlayer()
         local pitch = -math.atan2(deltaY, dist) * (180 / math.pi)
 
         -- Set player rotation
-        alya.player.setYaw(yaw)
-        alya.player.setPitch(pitch)
+        player.setYaw(yaw)
+        player.setPitch(pitch)
     end
 end
 ```
